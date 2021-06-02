@@ -1,0 +1,609 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.nav{
+height: 50px;
+background: #706c6c;
+text-align: center;
+color: white;
+font-size: 20px;
+width: 100%;
+z-index: 1;
+}
+
+.head{
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  width: 90%;
+  margin-top: 20px;
+  column-gap: 20px;
+  row-gap: 20px;
+}
+
+.container{
+  width: 250px;
+  height: 420px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.imgdiv1{
+ 
+  margin: auto;
+  width: 230px;
+    height: 330px;
+    border-radius: 20px;
+
+}
+.img{
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+}
+
+.datadiv1{
+  display: grid;
+  flex-wrap: nowrap;
+  margin-top: 10px;
+}
+
+.datadiv1 .authorname1{opacity: 0.7;font-size: 18px;}
+
+#books_container
+{
+    width:100%;
+    padding: 50px 50px 10px 50px;
+     
+    
+}
+
+.librarydiv{
+    margin-left:5rem;border-bottom: 2px solid #c7bebe;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+
+.left_container
+{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.left_container .datadiv h3{margin: 0rem 1rem 1.2rem 0rem;}
+.left_container .datadiv h1 .fa{font-size: 20px;top:0}
+
+.imgdiv{width: 21%;padding: 20px;height: 150px;margin-left: 10px;padding-left: 0px;}
+.imgdiv img{width: 100%;height: 100%;border-radius: 15px;}
+.datadiv{padding: 20px;margin-left: -1rem;}
+.datadiv h3 i{margin-right: 10px;}
+
+ ul li{list-style: none;}
+.bookname{
+    font-size: 20px;
+    font-weight: bold;
+}
+.authorname{
+    font-size: 17px;
+    opacity: 0.7;
+    font-weight: bolder;
+}
+
+
+
+.price{
+    font-size: 17px;
+}
+
+
+.stock{
+    font-size: 17px;
+    color: green;
+}
+
+
+.left_container .datadiv ul li .price i{font-size: 13px}
+
+
+ @media (min-width:481px) and (max-width: 991px) {
+#books_container
+{
+    width:100%;
+    padding: 50px 40px 50px 40px;
+     
+    
+}
+
+#bookcontainerinside{
+width: 100%;
+margin: auto;
+}
+.left_container
+{
+    display: flex;
+    column-gap: 20px;
+    width:100%;
+}
+.left_container .datadiv h3{margin: 0rem 1rem 1.2rem 0rem;}
+.left_container .datadiv h1 .fa{font-size: 20px;top:0}
+
+
+
+   
+.imgdiv{    
+    width: 100px;
+    padding: 20px;
+    height: 150px;
+    margin-left: 10px;
+    padding-left: 0px;;
+margin-left: 10px}
+
+.imgdiv img{width: 100%;height: 100%;}
+.datadiv{padding: 20px;margin-left: -2rem;}
+.datadiv h3 i{margin-right: 10px;}
+
+ ul li{list-style: none;}
+.bookname{
+    font-size: 20px;
+    font-weight: bold;
+}
+.authorname{
+    font-size: 17px;
+    font-weight: bolder;
+}
+
+.price{
+    font-size: 17px;
+}
+
+.left_container .datadiv ul li .price i{font-size: 13px}
+.buttondiv1{margin-left: -20px;margin-top: 2rem;}
+.buttondiv1 i{padding: 0px 5px 0px 0px;font-size: 18px;}
+
+} 
+
+
+body {font-family: Arial, Helvetica, sans-serif;height: 100%;}
+
+
+
+.containerbuy {
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 80px; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4);
+}
+
+.containerinsidebuy {
+  background-color: #fefefe;
+  margin: auto;
+  padding:30px;
+  border: 1px solid #888;
+  width: 60%;
+  height: auto;
+}
+
+.innerpartbuy{
+margin-top: 3rem;
+width: 100%;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.bookcontainerbuy{
+padding: 10px;
+width: 70%;
+margin: auto;
+
+}
+
+.imagecontainerbuy{
+width: 100%;
+padding: 10px;
+border: 3px solid gainsboro;
+border-radius: 5px;
+}
+
+.imagecontainerbuy img{
+width: 200px;
+height: 200px;
+}
+
+.imagecontainerbuy h3,h4{
+margin: 0.2rem;
+}
+
+
+@media(min-width:481px) and (max-width: 991px) {
+ .containerbuy {
+  /* display: none;  */
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 40px; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4);
+}
+
+.containerinsidebuy {
+  background-color: #fefefe;
+  margin: auto;
+  padding:30px;
+  border: 1px solid #888;
+  width: 70%;
+  overflow: auto; 
+  height: auto;
+}
+
+
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+.bookcontainerbuy{
+padding: 0px;
+width: 80%;
+height: auto;
+/* margin-top: 3rem; */
+}
+
+.imagecontainerbuy{
+width: 100%;
+padding: 40px;
+border: 3px solid gainsboro;
+border-radius: 5px;
+}
+
+.imagecontainerbuy img{
+width: 200px;
+height: 200px;
+}
+
+.imagecontainerbuy h3,h4{
+margin: 0.2rem;
+}
+
+
+    }
+
+    @media screen and (max-width: 480px) {
+ .containerbuy {
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 40px; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4);
+}
+
+.containerinsidebuy {
+  background-color: #fefefe;
+  margin: auto;
+  padding:30px;
+  border: 1px solid #888;
+  width: 95%;
+  overflow: auto; 
+}
+
+.innerpartbuy{
+margin-top: 3rem;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.bookcontainerbuy{
+padding: 0px;
+width: 100%;
+height: auto;
+}
+
+.imagecontainerbuy{
+width: 100%;
+padding: 40px;
+border: 3px solid gainsboro;
+border-radius: 5px;
+}
+
+.imagecontainerbuy img{
+width: 100%;
+height: 200px;
+}
+
+.imagecontainerbuy h3,h4{
+margin: 0.2rem;
+}
+
+    }
+    .inputdiv{position:relative;
+        margin-top: 0px;
+        width: 350px;
+    position: absolute;
+    right: 0;
+    margin-top: 5px;;
+    }
+
+    .inputdiv input{background: #b5a3a3;
+        border: none;
+        outline: none;
+        border-radius: 10px;
+        font-size: 20px;
+        padding-left: 10px;
+        height: 30px;
+    margin-top: 20px;
+    width: 200px;
+    }
+    #left{width: 500px;}
+#left1{width: 400px;display: revert;}
+#right{width: 300px;text-align: left;}
+#right1{width: 300px;display: revert;}
+
+    @media screen and (max-width: 480px) {
+
+        .view{margin-top: 50px;}
+        .inputdiv{position: absolute;
+            margin-top: 50px;
+            width: 95%;
+            right: auto;
+        }
+        .inputdiv input{background: #b5a3a3;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            font-size: 20px;
+            padding-left: 10px;
+            height: 40px;
+            width: 100%;
+        margin-top: 20px;
+
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        #right{width: 35%;text-align: right;}
+
+        #right1{width: 300px;display: none}
+        
+        #left{width: 65%;}
+        
+        #left1{width: 50%;display: none;}
+
+.librarydiv{
+    margin-left:1rem;border-bottom: 2px solid #c7bebe;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+
+#books_container
+{
+    width:100%;
+    padding: 50px 10px 10px 10px;
+     
+    
+}
+.left_container
+{
+    display: flex;
+    flex-wrap: nowrap;
+}
+.left_container .datadiv h3{margin: 0rem 1rem 1.2rem 0rem;}
+.left_container .datadiv h1 .fa{font-size: 20px;top:0}
+
+#cart_container
+{
+    height:80px;
+
+}
+
+.imgdiv{width: 80px;padding: 20px;height: 130px;margin-left: 10px;padding-left: 0px;}
+.imgdiv img{width: 100%;height: 100%;border-radius: 15px;}
+.datadiv{padding: 20px;margin-left: -3rem;}
+.datadiv h3 i{margin-right: 10px;}
+
+ ul li{list-style: none;}
+.bookname{
+    font-size: 16px;
+    font-weight: bold;
+}
+.authorname{
+    font-size: 14px;
+    opacity: 0.7;
+    font-weight: bolder;
+}
+
+
+
+.price{
+    font-size: 17px;
+}
+
+
+
+.stock{
+    font-size: 17px;
+    color: green;
+}
+
+
+
+.left_container .datadiv ul li .price i{font-size: 13px}
+.buttondiv1{margin-left: -20px;margin-top: 2rem;}
+.buttondiv1 i{padding: 0px 5px 0px 0px;font-size: 18px;}
+
+    }
+
+
+    .readingdiv{ position: absolute;
+        margin-top: 10px;
+        height: 40px;
+        width: 60px;
+        background: #e6e0e0;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        margin-left: 10px;
+        background: transparent;
+        background-color: black;
+        border-radius: 10px;
+        background: rgb(119 112 112 / 80%);
+        color: wheat;
+            font-weight: 700;}
+            .readingdiv span{position: absolute;
+                top: 20%;}
+
+    .genrediv{
+        position: absolute;
+    margin-top: -70px;
+    height: 50px;
+    width: 100px;
+    background: #e6e0e0;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-left: 120px;
+    background: transparent;
+    background-color: black;
+    border-radius: 15px;
+    background: rgba(0,0,0,0.8);
+    color: wheat;
+        font-weight: 700;
+    }
+
+    .genrediv span{position: absolute;
+        top: 30%;}
+
+    @media screen and (max-width: 480px) {
+
+    .head{
+        display: flex;
+        flex-wrap: wrap;
+        margin: auto;
+        width: 100%;
+        margin-top: 20px;
+        column-gap: 0px;
+        row-gap: 20px;
+      }
+      
+      .container{
+        width: 50%;
+        height: 380px;
+        padding: 10px;
+        border-radius: 10px;
+      }
+      
+      .imgdiv1{
+       
+        margin: 0;
+        width: 100%;
+          height: 300px;
+          border-radius: 20px;
+      
+      }
+      .img{
+        height: 100%;
+        width: 100%;
+        border-radius: 20px;
+      }
+      
+      .datadiv1{
+        display: grid;
+        flex-wrap: nowrap;
+        margin-top: 10px;
+      }
+      
+      .datadiv1 .authorname1{opacity: 0.7;font-size: 15px;}
+      .genrediv{
+        position: absolute;
+    margin-top: -55px;
+    height: 40px;
+    width: 20%;
+    background: #e6e0e0;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-left: 75px;
+    background: transparent;
+    background-color: black;
+    border-radius: 10px;
+        color: black;
+        background:rgb(119 112 112 / 80%);
+        font-weight: 700;
+    }
+
+    .genrediv span{position: absolute;
+        top: 20%;}
+    }    
+    
+    
+ 
