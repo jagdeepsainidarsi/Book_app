@@ -6,7 +6,7 @@ import Bookcontainer from "./Bookcontainer"
 
 function App() {
   const storedDarkMode = localStorage.getItem("DARK_MODE");
-  const [darkMode, setDarkMode] = useState(storedDarkMode);
+  const [darkMode, setDarkMode] = useState(false);
   const toggleDarkMode = () => setDarkMode(darkMode ? false : true);
   useEffect(() => {
     localStorage.setItem("DARK_MODE", darkMode);
