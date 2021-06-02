@@ -5,10 +5,10 @@ import "./theme.css"
 import Switch from '@material-ui/core/Switch';
 function Bookcontainer(){
     const [pop,setPop]=useState(false);
-    const[search,usearch]=useState({
-        searchvalue:"",
-        
-    })
+    const [notfound,setNotfound]=useState(false);
+    const[book,setBook]=useState(books);
+    const[search,usearch]=useState("")
+    const[searchfilter,setSearchfilter]=useState([])
     const [value,setValue]=useState({
         bookName:"",
         bookAuthor:"",
@@ -17,6 +17,17 @@ function Bookcontainer(){
         bookImage:null,
         Desc:""
     })
+    React.useEffect(() => {
+      const results = book.filter(person =>
+        person.bookName.toLowerCase().includes(search)
+      );
+     
+      
+
+        setSearchfilter(results);
+      
+    }, [search]);
+  
     const [state, setState] = React.useState({
         checkedA: false,
         
@@ -33,36 +44,62 @@ setValue({bookName:data.bookName,bookAuthor:data.bookAuthor,bookPrice:data.bookP
 
       const handleinput=(event)=>{
         const {name,value}=event.target;
-        usearch((previousvalue)=>{
-          return{
-            ...previousvalue,
-            [name]:value
-      }})
+      
+        usearch(event.target.value);
       }
+      if(searchfilter.length==0){
+        return (
+          <>
+          <div  className="librarydiv">
+          <div className="bookheading">
+          <h2 >Book Library</h2>
+          </div>
+          <div className="inputdiv">
+     
+        <input type="text"  value={search.searchvalue} onChange={handleinput} placeholder="Search" name="searchvalue" />
+       
+        </div>
+          <div className="switch">
+          <label className="gridlabel" >Grid</label>
+          <Switch
+          checked={state.checkedA}
+          onChange={handleChange}
+          name="checkedA"
+          inputProps={{ 'aria-label': 'secondary checkbox' }}
+        />
+        <label className="listlabel">List</label>
+          </div>
+          </div>
+          <div className="view"><div className="notfounddiv"><h1>Not found</h1></div></div>
+          </>
+        )
+      }
+      else{
     return(
      <>
     
      <div  className="librarydiv">
-     <div>
-     <h2 style={{fontWeight:"bold"}}>Book Library</h2>
+     <div className="bookheading">
+     <h2 >Book Library</h2>
      </div>
      <div className="inputdiv">
 
    <input type="text"  value={search.searchvalue} onChange={handleinput} placeholder="Search" name="searchvalue" />
   
    </div>
-     <div>
-     <label style={{marginTop:"30px"}}>Grid</label>
+     <div className="switch">
+     <label className="gridlabel" >Grid</label>
      <Switch
      checked={state.checkedA}
      onChange={handleChange}
      name="checkedA"
      inputProps={{ 'aria-label': 'secondary checkbox' }}
    />
-   <label style={{marginRight:"20px"}}>List</label>
+   <label className="listlabel">List</label>
      </div>
      </div>
         <div className="view">
+      
       {state.checkedA ?
         <section id="books_container">
         <div id="bookcontainerinside">
@@ -77,18 +114,18 @@ setValue({bookName:data.bookName,bookAuthor:data.bookAuthor,bookPrice:data.bookP
         </tr>
         </thead>
         <tbody>
-        
-        { books.filter((val)=>{if(search===""){return val}else if(val.bookName.toLowerCase().includes(search.searchvalue.toLowerCase())){ return val} }).map((val,key)=>{
+        {
+        searchfilter.map((val,key)=>{
             return (
               <tr key={key}>
               <td >
               <div className="left_container" key={key}  >
-              <div className="imgdiv" onClick={()=>{popup(val)}} style={{cursor:"pointer"}}>
+              <div className="imgdiv" onClick={()=>{popup(val)}}>
               <img  alt="" src={val.bookImage}/>
              
               </div>
               <div className="datadiv">
-              <ul style={{marginTop:"20px"  }}>
+              <ul >
               <li><span className="bookname">{val.bookName}</span></li>
               <li><span  className="authorname">{val.bookAuthor}</span></li>
               
@@ -107,10 +144,10 @@ setValue({bookName:data.bookName,bookAuthor:data.bookAuthor,bookPrice:data.bookP
            
        : <div className="head">
        
-       {   books.filter((val)=>{if(search===""){return val}else if(val.bookName.toLowerCase().includes(search.searchvalue.toLowerCase())){return val}; }).map((val,key)=>{
+       {searchfilter.map((val,key)=>{
          
         return (
-          <div className="container" onClick={()=>{popup(val)}} key={key} style={{cursor:"pointer"}}>
+          <div className="container" onClick={()=>{popup(val)}} key={key} >
           <div className="imgdiv1">
           <div className="readingdiv"><span>{val.readingProcess}%</span></div>
           <img alt="" className="img" src={val.bookImage}/>
@@ -143,10 +180,9 @@ setValue({bookName:data.bookName,bookAuthor:data.bookAuthor,bookPrice:data.bookP
                 <img alt="" src={value.bookImage} id="buyimage"/>
                  <ul>
                  <li><span id="buybookname" className="bookname">{value.bookName}</span></li>
-                 <li style={{opacity:"0.7",color:"black"}}><span id="buybookauthor" className="authorname">By {value.bookAuthor}</span></li>
-                 <li><span id="buybookpub" style={{color:"black"}} className="publisher">{value.bookPrice}</span></li>
-                 <li style={{color:"green"}}><span>In stock</span></li>
-                 <li><span style={{color:"black"}}>{value.Desc}</span></li>
+                 <li className="bookauthorli"><span id="buybookauthor" className="authorname">By {value.bookAuthor}</span></li>
+                 <li className="stock"><span>In stock</span></li>
+                 <li><span className="desc">{value.Desc}</span></li>
                
                  </ul>
             </div>
@@ -160,13 +196,8 @@ setValue({bookName:data.bookName,bookAuthor:data.bookAuthor,bookPrice:data.bookP
       
       </div>
             :null}
-
-        
-
-
-        
         </>
-    )
+    )}
 
 }
 
