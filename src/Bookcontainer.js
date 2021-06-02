@@ -5,8 +5,7 @@ import "./theme.css"
 import Switch from '@material-ui/core/Switch';
 function Bookcontainer(){
     const [pop,setPop]=useState(false);
-    const [notfound,setNotfound]=useState(false);
-    const[book,setBook]=useState(books);
+    const [book]=useState(books);
     const[search,usearch]=useState("")
     const[searchfilter,setSearchfilter]=useState([])
     const [value,setValue]=useState({
@@ -43,11 +42,11 @@ setValue({bookName:data.bookName,bookAuthor:data.bookAuthor,bookPrice:data.bookP
       }
 
       const handleinput=(event)=>{
-        const {name,value}=event.target;
+        // const {name,value}=event.target;
       
         usearch(event.target.value);
       }
-      if(searchfilter.length==0){
+      if(searchfilter.length===0){
         return (
           <>
           <div  className="librarydiv">
