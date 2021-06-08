@@ -12,27 +12,8 @@
  
  
   
-  .App {
-    font-family: sans-serif;
-    /* text-align: center; */
-    background-color: var(--bg-color);
-    color: var(--text-color);
-  }
-
-  .modebutton{
-    background: none;
-    border: none;
-    position: absolute;
-    right: 0;
-    top: 0;
-    margin-top: 10px;
-    margin-right: 30px;
-    color: white;
-    z-index: 2;
-    /* position: fixed; */
-   
-  }
-  .fa{font-size: 30px;}
+ 
+  /* .fa{font-size: 30px;}
 
   .sun {font-size:30px}
-  #moon{font-size:large;color:black;font-size:30px}
+  #moon{font-size:large;color:black;font-size:30px} */

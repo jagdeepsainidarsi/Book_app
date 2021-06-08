@@ -1,13 +1,13 @@
-import c from "./images/c.jpg"
-import java from "./images/java.jpg"
-import cplus from "./images/c++.jpg"
-import cn from "./images/computer.jpg"
-import ds from "./images/data.jpg"
-import cloud from "./images/cloud.jpg"
-import uml from "./images/uml.jpg"
-import csh from "./images/csh.jpg"
-import cg from "./images/cg.jpg"
-import compiler from "./images/compiler.jpg"
+import c from "../images/c.jpg"
+import java from "../images/java.jpg"
+import cplus from "../images/c++.jpg"
+import cn from "../images/computer.jpg"
+import ds from "../images/data.jpg"
+import cloud from "../images/cloud.jpg"
+import uml from "../images/uml.jpg"
+import csh from "../images/csh.jpg"
+import cg from "../images/cg.jpg"
+import compiler from "../images/compiler.jpg"
 const books=[
     {
         bookName:"Java",
