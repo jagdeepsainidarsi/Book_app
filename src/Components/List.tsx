@@ -23,7 +23,7 @@ height:100%;
 `;
 
 const DataContainer=styled.div`
-height: 500px;
+height: 600px;
  width: 100%;
 
 `;
@@ -33,7 +33,7 @@ height: 500px;
 
 const List=(props:any)=>{
     const [pop,setPop]=useState(false);
-    const [value,setValue]=useState({})
+    const [value,setValue]=useState({});
     var gridOptions = {
         rowHeight: 120,
         rowStyle: {'margin-bottom':'20px'},
