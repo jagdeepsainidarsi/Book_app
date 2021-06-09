@@ -1,6 +1,9 @@
 import React,{useState,useEffect} from "react"
 import Pop from "./Pop"
 import styled from 'styled-components'
+import {AgGridColumn, AgGridReact} from 'ag-grid-react';
+import 'ag-grid-community/dist/styles/ag-grid.css';
+import 'ag-grid-community/dist/styles/ag-theme-balham.css';
 
 const Section=styled.section`
 width:100%;
@@ -16,176 +19,66 @@ padding: 50px 10px 10px 10px;
 const BookContainer=styled.div`
 width: 100%;
 margin: auto;
+height:100%;
 `;
-const LeftContainer=styled.div`
-display: flex;
-flex-wrap: nowrap;
-@media (min-width:481px) and (max-width: 991px) {
-display: flex;
-column-gap: 20px;
-width:100%;
-}
-@media screen and (max-width: 480px) {
-display: flex;
-flex-wrap: nowrap;
-}
-`;
-const ImageContainer=styled.div`
-width: 21%;
-padding: 20px;
-height: 150px;
-margin-left: 10px;
-padding-left: 0px;
-cursor: pointer;
-@media (min-width:481px) and (max-width: 991px) {
-width: 100px;
-}
-@media screen and (max-width: 480px){
-width: 80px;
-height: 130px;
-}
-`;
-const Img=styled.img`
-width: 100%;
-height: 100%;
-border-radius: 15px;
-`;
+
 const DataContainer=styled.div`
-padding: 20px;
-margin-left: -2rem;
-margin-top:20px;
-@media screen and (max-width: 480px) {
-padding: 20px;
-margin-left: -3rem;
-}
+height: 500px;
+ width: 100%;
+
 `;
-const Ulist=styled.ul`
-`;
-const Llist=styled.li`
-list-style: none;
-`;
-const SBookName=styled.span`
-font-size: 20px;
-font-weight: bold;
-@media screen and (max-width: 480px){
-font-size: 16px;
-}
-`;
-const SAuthorName=styled.span`
-font-size: 17px;
-opacity: 0.7;
-font-weight: bolder;
-@media screen and (max-width: 480px){
-font-size: 14px;
-opacity: 0.7;
-font-weight: bolder;
-}
-`;
-const Th1=styled.th`
-width: 500px;
-@media screen and (max-width: 480px){
-width: 65%;
-}
-`;
-const Th2=styled.th`
-width: 400px;
-display: revert;
-@media screen and (max-width: 480px){
-width: 50%;
-display: none;
-}
-`;
-const Th3=styled.th`
-width: 300px;
-text-align: left;
-@media screen and (max-width: 480px){
-width: 35%;
-text-align: right;
-}
-`;
-const Th4=styled.th`
-width: 300px;
-display: revert;
-@media screen and (max-width: 480px){
-width: 300px;
-display: none;
-}
-`;
-const Td2=styled.td`
-width: 400px;
-display: revert;
-@media screen and (max-width: 480px){
-width: 50%;
-display: none;
-}
-`;
-const Td3=styled.td`
-width: 300px;
-text-align: left;
-@media screen and (max-width: 480px){
-width: 35%;
-text-align: right;
-}
-`;
-const Td4=styled.td`
-width: 300px;
-display: revert;
-@media screen and (max-width: 480px){
-width: 300px;
-display: none;
-}
-`;
+
 
 
 
 const List=(props:any)=>{
     const [pop,setPop]=useState(false);
     const [value,setValue]=useState({})
-    const popup=(data:any)=>{
-        setPop(true);
-        setValue(data)  
+    var gridOptions = {
+        rowHeight: 120,
+        rowStyle: {'margin-bottom':'20px'},
+        
+    };
+    const staticCellStyle = {'font-size':'20px','opacity':'0.8'};
+ 
+    const getdara=(params:any)=>{
+            // console.log(params);
+            setPop(true)
+            setValue(params.data)
+        }
+    function AllCellRenderer(params:any) {
+        var flag =
+        '<img border="0" style="border-radius: 15px" width="60" height="100" src='+params.data.bookImage+' onClick=""/>';
+        return (
+        '<div style="cursor: default;display:inline-flex"  >' + flag +'<div style="margin-left:10px;margin-top:20px;font-weight:bold">'+'<span >'+params.data.bookName+'</span>'+'</br>'+'<span style="font-size:16px;font-weight:100">'+params.data.bookAuthor+ '</span>'+'</div>' +  '</div>'
+          );
+          }
+
+    function ReadingProcessRenderer(params:any){
+        return(
+        '<span >'+params.data.readingProcess+"%"+'</span>'
+        )
         }
        
     return(
         <>
         <Section >
         <BookContainer>
-        <table>
-        <thead>
-        <tr>
-        <Th1 >Book Title & Author</Th1> 
-        <Th2 >Genre</Th2>
-        <Th3  >Reading Progress</Th3>
-        <Th4 >Last Opened</Th4>
-        
-        </tr>
-        </thead>
-        <tbody>
-        {
-        props.props.map((val:any,key:any)=>{
-            return (
-              <tr key={key}>
-              <td >
-              <LeftContainer key={key}  >
-              <ImageContainer  onClick={()=>{popup(val)}}>
-              <Img  alt="" src={val.bookImage}/>
-              </ImageContainer>
-              <DataContainer>
-              <Ulist >
-              <Llist><SBookName >{val.bookName}</SBookName></Llist>
-              <Llist><SAuthorName  >{val.bookAuthor}</SAuthorName></Llist>
-              </Ulist>
-              </DataContainer>
-              </LeftContainer>
-              </td>
-              <Td2>{val.bookGener}</Td2>
-              <Td3 > {val.readingProcess}%</Td3>
-              <Td4 >{val.lastOpened}</Td4>
-              </tr>
-              )})}
-              </tbody>
-        </table>
-        </BookContainer></Section>
+           <DataContainer className="ag-theme-alpine" >
+           <AgGridReact gridOptions={gridOptions}   defaultColDef={{
+            flex: 1,
+            minWidth: 250,
+            resizable: true,
+            }}
+            rowData={props.props}>
+               <AgGridColumn field="bookName"   minWidth={300} sortable={ true } cellRenderer={AllCellRenderer} cellStyle={staticCellStyle} onCellClicked={getdara}></AgGridColumn>
+               <AgGridColumn field="bookGener" minWidth={300} sortable={ true } cellStyle={staticCellStyle} onCellClicked={getdara}></AgGridColumn>
+               <AgGridColumn field="readingProcess" minWidth={300} sortable={ true } cellStyle={staticCellStyle} cellRenderer={ReadingProcessRenderer}></AgGridColumn>
+               <AgGridColumn field="lastOpened" minWidth={300} sortable={ true } cellStyle={staticCellStyle}></AgGridColumn>
+           </AgGridReact>
+       </DataContainer>
+        </BookContainer>
+        </Section>
         <Pop prop={value} pr={pop}/>
         </>
     )
